@@ -5,7 +5,28 @@
 ## プロジェクト概要
 
 - プロジェクト名: realestate-app（不動産アプリ）
-- 技術スタック・ビルド/テストコマンド: 未定（決まり次第このファイルに追記すること）
+- 技術スタック: React 19 + Vite（JavaScript）/ react-router-dom / Supabase（認証）
+
+### コマンド
+
+- `npm install`: 依存パッケージのインストール
+- `npm run dev`: 開発サーバーの起動
+- `npm run build`: 本番ビルド（変更後はこれが通ることを確認する）
+- テストは未導入
+
+### セットアップ
+
+`.env.example` を `.env` にコピーし、Supabase の Project URL と Publishable key を設定する。
+`.env` は `.gitignore` 対象のため、コミットしないこと。
+
+### 構成
+
+- `src/lib/supabase.js`: Supabase クライアント（`.env` の `VITE_SUPABASE_*` を使用）
+- `src/contexts/AuthContext.jsx`: 認証状態の管理（`useAuth` フック）
+- `src/components/ProtectedRoute.jsx`: 未ログインならログイン画面へリダイレクト
+- `src/components/PublicRoute.jsx`: ログイン済みなら物件一覧へリダイレクト
+- `src/pages/`: ログイン・会員登録・物件一覧の各画面
+- `src/data/dummyProperties.js`: 物件のダミーデータ（DB連携は未実装）
 
 ## 言語・コミュニケーション
 
