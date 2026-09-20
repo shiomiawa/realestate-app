@@ -39,7 +39,12 @@
 - `user_id` は INSERT 時に DB の `default auth.uid()` で自動設定される。React 側からは送らない。
 - スキーマを変更する場合は `supabase/schema.sql` を更新し、Supabase の SQL Editor で実行する（再実行可能な書き方にしてある）。
 
-### デプロイ（Vercel）
+## デプロイ情報
+
+- 本番URL：https://プロジェクト名.vercel.app （※実際のURLに置き換えること）
+- Supabaseプロジェクト名：realestate-app
+
+### Vercel の設定
 
 - Vite プロジェクトとして自動検出される（ビルド: `npm run build`、出力先: `dist`）。
 - `vercel.json` で全パスを `index.html` に転送している。これがないと、`/login` などを直接開いたりリロードしたりしたときに 404 になる（react-router のクライアントサイドルーティングのため）。
