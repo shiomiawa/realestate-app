@@ -39,6 +39,13 @@
 - `user_id` は INSERT 時に DB の `default auth.uid()` で自動設定される。React 側からは送らない。
 - スキーマを変更する場合は `supabase/schema.sql` を更新し、Supabase の SQL Editor で実行する（再実行可能な書き方にしてある）。
 
+### デプロイ（Vercel）
+
+- Vite プロジェクトとして自動検出される（ビルド: `npm run build`、出力先: `dist`）。
+- `vercel.json` で全パスを `index.html` に転送している。これがないと、`/login` などを直接開いたりリロードしたりしたときに 404 になる（react-router のクライアントサイドルーティングのため）。
+- `.env` は Git に含まれないため、Vercel の Environment Variables に `VITE_SUPABASE_URL` と `VITE_SUPABASE_PUBLISHABLE_KEY` を登録する。
+- Supabase の Authentication > URL Configuration の Site URL に、Vercel の URL を設定する。
+
 ## 言語・コミュニケーション
 
 - ユーザーへの返答、コミットメッセージ、コード内コメントは日本語で書く。
