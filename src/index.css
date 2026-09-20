@@ -208,3 +208,118 @@ p {
 .property-card .area {
   font-size: 14px;
 }
+
+/* ---------- 物件のCRUD（ツールバー・フォーム・ボタン） ---------- */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.toolbar .count {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.primary-button {
+  color: #fff;
+  background: #2563eb;
+  border: 1px solid #2563eb;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.secondary-button {
+  color: #374151;
+  background: #fff;
+  border: 1px solid #d1d5db;
+}
+
+.secondary-button:hover {
+  background: #f3f4f6;
+}
+
+.danger-button {
+  color: #b91c1c;
+  background: #fff;
+  border: 1px solid #fca5a5;
+}
+
+.danger-button:hover {
+  background: #fee2e2;
+}
+
+.primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.property-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 480px;
+  margin-bottom: 24px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.property-form h2 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.property-form label {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.property-form input {
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.property-form input:focus {
+  outline: 2px solid #2563eb;
+  border-color: transparent;
+}
+
+.form-actions,
+.card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.form-actions {
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.card-actions {
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.empty {
+  padding: 40px 0;
+  text-align: center;
+  color: #6b7280;
+}

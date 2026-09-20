@@ -26,7 +26,17 @@
 - `src/components/ProtectedRoute.jsx`: 未ログインならログイン画面へリダイレクト
 - `src/components/PublicRoute.jsx`: ログイン済みなら物件一覧へリダイレクト
 - `src/pages/`: ログイン・会員登録・物件一覧の各画面
-- `src/data/dummyProperties.js`: 物件のダミーデータ（DB連携は未実装）
+- `src/lib/propertiesApi.js`: 物件テーブルのCRUD（SELECT/INSERT/UPDATE/DELETE）とDBエラーの日本語化
+- `src/components/PropertyForm.jsx`: 物件の新規登録・編集で共用するフォーム
+- `supabase/schema.sql`: `properties` テーブルとRLSポリシーの定義
+
+### データベース
+
+- `properties` テーブル（物件名 `name` / 家賃 `rent` / エリア名 `area` / 間取り `floor_plan` / 登録者 `user_id`）。
+- RLS を有効にしており、ログインユーザーは自分が登録した物件（`user_id = auth.uid()`）のみ表示・編集・削除できる。
+  絞り込みは DB 側のポリシーで行うため、React 側の SELECT に `user_id` の条件は付けていない。
+- `user_id` は INSERT 時に DB の `default auth.uid()` で自動設定される。React 側からは送らない。
+- スキーマを変更する場合は `supabase/schema.sql` を更新し、Supabase の SQL Editor で実行する（再実行可能な書き方にしてある）。
 
 ## 言語・コミュニケーション
 
